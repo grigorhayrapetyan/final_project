@@ -1,6 +1,23 @@
 var side = 20;
 var socket = io();
 
+let grassCountElement = document.getElementById('grassCount');
+let grassEaterCountElement = document.getElementById('grassEaterCount');
+let gishatichCountElement = document.getElementById('gishatichCount');
+let grass1CountElement = document.getElementById('grass1Count');
+let xotakerCountElement = document.getElementById('xotakerCount');
+let hoxCountElement = document.getElementById('hoxCount');
+
+function drawCreatures(data) {
+    //! after getting data pass it to matrix variable
+    matrix = data.matrix;
+    grassCountElement.innerText = data.grassCounter;
+    grassEaterCountElement.innerText = data.grassEaterCount;
+    gishatichCountElement.innerText = data.gishatichCount;
+    grass1CountElement.innerText = data.grass1Count;
+    xotakerCountElement.innerText = data.xotakerCount;
+    xotakerCountElement.innerText = data.xotakerCount;
+}
 style = "standart";
 
 function handleStyle() {
@@ -79,4 +96,4 @@ function drawMatrix(matrix) {
 }
 
 
-socket.on("matrix",drawMatrix);
+socket.on("matrix",drawMatrix,"data",drawCreatures);
